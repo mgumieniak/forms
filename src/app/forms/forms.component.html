@@ -1,0 +1,33 @@
+<form novalidate [formGroup]="forms">
+  <form-field>
+    <form-label>Full name</form-label>
+    <input formInput
+           type="text"
+           placeholder="Your full name"
+           formControlName="name">
+  </form-field>
+  <!--  <div>-->
+  <!--    <label>Full name</label>-->
+  <!--    <input-->
+  <!--      type="text"-->
+  <!--      placeholder="Your full name"-->
+  <!--      formControlName="name">-->
+  <!--  </div>-->
+  <div formGroupName="account">
+    <div>
+      <label>Email address</label>
+      <input
+        type="email"
+        placeholder="Your email address"
+        formControlName="email">
+    </div>
+    <div>
+      <label>Confirm address</label>
+      <input
+        type="email"
+        placeholder="Confirm your email address"
+        formControlName="confirm">
+    </div>
+  </div>
+  <button type="submit">Sign up</button>
+</form>

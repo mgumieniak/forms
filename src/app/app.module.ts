@@ -2,13 +2,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { FormFieldComponent } from './form-field/form-field.component';
+import { FormsComponent } from './forms/forms.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { FormLabelDirective } from './form-label/form-label.directive';
+import { FormInputDirective } from './form-input/form-input.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormFieldComponent,
+    FormsComponent,
+    FormLabelDirective,
+    FormInputDirective
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
