@@ -1,4 +1,4 @@
-<form novalidate [formGroup]="forms">
+<form novalidate [formGroup]="forms" (ngSubmit)="onSubmit()">
   <form-field>
     <form-label>Full name</form-label>
     <input formInput

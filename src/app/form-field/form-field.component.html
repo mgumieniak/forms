@@ -1,4 +1,7 @@
-<ng-content select="form-label"></ng-content>
-<div class="textbox-wrapper" (input)="inputChanged($event)">
-  <ng-content></ng-content>
+<div class="form">
+  <ng-content select="form-label" class="form__label"></ng-content>
+  <div class="form__content">
+      <ng-content></ng-content>
+  </div>
 </div>
+

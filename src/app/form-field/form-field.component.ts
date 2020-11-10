@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterContentInit, Component, ContentChild, ElementRef} from '@angular/core';
+import {FormInputDirective} from '../form-input/form-input.directive';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -6,17 +7,13 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './form-field.component.html',
   styleUrls: ['./form-field.component.scss']
 })
-export class FormFieldComponent implements OnInit {
+export class FormFieldComponent implements AfterContentInit {
+  @ContentChild(FormInputDirective, {read: ElementRef}) child: FormInputDirective;
 
   constructor() {
   }
 
-  inputValue: string;
-
-  ngOnInit(): void {
-  }
-
-  inputChanged(event): void {
-    this.inputValue = event.target.value;
+  ngAfterContentInit(): void {
+    console.log(this.child);
   }
 }

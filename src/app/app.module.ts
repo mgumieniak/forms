@@ -14,7 +14,8 @@ import { FormInputDirective } from './form-input/form-input.directive';
     FormFieldComponent,
     FormsComponent,
     FormLabelDirective,
-    FormInputDirective
+    FormInputDirective,
+    FormFieldComponent
   ],
   imports: [
     BrowserModule,

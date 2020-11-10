@@ -21,7 +21,10 @@ export class FormsComponent implements OnInit {
         confirm: new FormControl('', Validators.required)
       })
     });
+  }
 
+  onSubmit(): void {
+    console.log(this.forms.value, this.forms.valid);
   }
 
 }
