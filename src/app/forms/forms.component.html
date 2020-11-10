@@ -1,18 +1,11 @@
 <form novalidate [formGroup]="forms" (ngSubmit)="onSubmit()">
-  <form-field>
-    <form-label>Full name</form-label>
-    <input formInput
+  <div>
+    <label class="form__label">Full name</label>
+    <input class="form__content"
            type="text"
            placeholder="Your full name"
            formControlName="name">
-  </form-field>
-  <!--  <div>-->
-  <!--    <label>Full name</label>-->
-  <!--    <input-->
-  <!--      type="text"-->
-  <!--      placeholder="Your full name"-->
-  <!--      formControlName="name">-->
-  <!--  </div>-->
+  </div>
   <div formGroupName="account">
     <div>
       <label>Email address</label>

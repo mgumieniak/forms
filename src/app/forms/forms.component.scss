@@ -1,34 +1,42 @@
 @import "src/styles";
 
-.form{
-  position: relative;
+.form {
 
-  &__label{
-    margin-bottom: $form-label-margin-bottom;
-    font-style: $form-label-font-style;
-    font-weight: $form-label-font-weight;
-    color: palegreen;
+  &__label {
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
   }
 
-  &__content{
+  &__content {
     display: block;
     width: 100%;
-    padding: $input-padding-y $input-padding-x;
-    font-family: $input-font-family;
-    font-size: $input-font-size;
-    font-weight: $input-font-weight;
-    line-height: $input-line-height;
-    color: palegreen ;
-    background-color: $white;
-    //background-clip: padding-box;
-    border: $border-width solid $gray-400;
-    //appearance: none;
+    min-height: $input-height;
 
-    &:focus{
+    margin-top: 0;
+    padding: $input-padding-y $input-padding-x;
+
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    line-height: $input-line-height-sm;
+
+    color: $gray-700;
+    background-color: $white;
+    background-clip: padding-box;
+
+    border: $border-width solid $gray-400;
+    border-radius: $border-radius;
+
+    @include box-shadow($input-box-shadow);
+    transition: $input-transition;
+
+    appearance: none;
+
+    &:focus {
       color: $input-focus-color;
       background-color: $input-focus-bg;
       border-color: $input-focus-border-color;
       outline: 0;
+      @include box-shadow($input-box-shadow, $input-focus-box-shadow);
     }
   }
 }

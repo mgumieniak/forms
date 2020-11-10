@@ -14,11 +14,11 @@ export class FormsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.forms = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(2)]),
-      account: new FormGroup({
-        email: new FormControl('', Validators.required),
-        confirm: new FormControl('', Validators.required)
+    this.forms = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      account: this.fb.group({
+        email: ['', Validators.required],
+        confirm: ['', Validators.required]
       })
     });
   }
