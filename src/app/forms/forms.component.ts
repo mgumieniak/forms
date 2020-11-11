@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-forms',
@@ -15,7 +15,7 @@ export class FormsComponent implements OnInit {
 
   ngOnInit(): void {
     this.forms = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
+      name: ['', [Validators.required, Validators.minLength(10)]],
       account: this.fb.group({
         email: ['', Validators.required],
         confirm: ['', Validators.required]
@@ -23,7 +23,10 @@ export class FormsComponent implements OnInit {
     });
   }
 
+  isNameInvalid = false;
+
   onSubmit(): void {
+    this.isNameInvalid = this.forms.controls.name.invalid;
     console.log(this.forms.value, this.forms.valid);
   }
 

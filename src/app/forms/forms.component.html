@@ -1,25 +1,38 @@
-<form novalidate [formGroup]="forms" (ngSubmit)="onSubmit()">
-  <div>
-    <label class="form__label">Full name</label>
-    <input class="form__content"
+<form class="form" novalidate [formGroup]="forms" (ngSubmit)="onSubmit()">
+  <form-field class="form-field">
+    <form-label class="form__label">Full name:</form-label>
+    <input class="form__input"
            type="text"
            placeholder="Your full name"
            formControlName="name">
-  </div>
-  <div formGroupName="account">
-    <div>
-      <label>Email address</label>
-      <input
-        type="email"
-        placeholder="Your email address"
-        formControlName="email">
+    <form-error>
+      Full name error
+    </form-error>
+  </form-field>
+  <!--  <div class="form-field">-->
+  <!--    <label class="form__label">Full name:</label>-->
+  <!--    <input class="form__input"-->
+  <!--           type="text"-->
+  <!--           placeholder="Your full name"-->
+  <!--           formControlName="name">-->
+  <!--    <div *ngIf="this.isNameInvalid">-->
+  <!--      <p>INVALID!!!!</p>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <div formGroupName="account" class="form-account">
+    <div class="form-field">
+      <label class="form__label">Email address:</label>
+      <input class="form__input"
+             type="email"
+             placeholder="Your email address"
+             formControlName="email">
     </div>
-    <div>
-      <label>Confirm address</label>
-      <input
-        type="email"
-        placeholder="Confirm your email address"
-        formControlName="confirm">
+    <div class="form-field">
+      <label class="form__label">Confirm address:</label>
+      <input class="form__input"
+             type="email"
+             placeholder="Confirm your email address"
+             formControlName="confirm">
     </div>
   </div>
   <button type="submit">Sign up</button>

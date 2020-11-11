@@ -107,6 +107,7 @@
     "variable-name": {
       "options": [
         "ban-keywords",
+        "allow-leading-underscore",
         "check-format",
         "allow-pascal-case"
       ]
@@ -143,7 +144,6 @@
     "component-selector": [
       true,
       "element",
-      "app",
       "kebab-case"
     ]
   }

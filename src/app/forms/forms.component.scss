@@ -1,42 +1,18 @@
 @import "src/styles";
+@import "src/forms/form";
 
 .form {
+  display: block;
+  margin: $small-dist;
+}
 
-  &__label {
-    font-size: $font-size-base;
-    font-weight: $font-weight-normal;
-  }
+.form-account {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  &__content {
-    display: block;
-    width: 100%;
-    min-height: $input-height;
-
-    margin-top: 0;
-    padding: $input-padding-y $input-padding-x;
-
-    font-size: $font-size-base;
-    font-weight: $font-weight-normal;
-    line-height: $input-line-height-sm;
-
-    color: $gray-700;
-    background-color: $white;
-    background-clip: padding-box;
-
-    border: $border-width solid $gray-400;
-    border-radius: $border-radius;
-
-    @include box-shadow($input-box-shadow);
-    transition: $input-transition;
-
-    appearance: none;
-
-    &:focus {
-      color: $input-focus-color;
-      background-color: $input-focus-bg;
-      border-color: $input-focus-border-color;
-      outline: 0;
-      @include box-shadow($input-box-shadow, $input-focus-box-shadow);
-    }
-  }
+.form-account > .form-field  + .form-field  {
+  margin-left: $small-dist;
 }

@@ -1,0 +1,13 @@
+@import "src/styles";
+
+.form__label{
+  display: block;
+  margin-bottom: $form-label-margin-bottom;
+
+  font-size: $font-size-base;
+  font-weight: $form-label-font-weight;
+}
+
+.form__label--sm{
+  font-size: $font-size-sm;
+}
