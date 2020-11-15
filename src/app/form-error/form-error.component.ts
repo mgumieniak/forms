@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'form-error',
@@ -7,11 +7,19 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FormErrorComponent implements OnInit {
+  _isFormSubmitted = false;
+  _isError = false;
 
-  isFormSubmitted = false;
-  isError = false;
+  @Input() set isFormSubmitted(status) {
+    this._isFormSubmitted = status;
+    this.cdr.markForCheck();
+  }
 
-  constructor() {
+  @Input() set isError(status) {
+    this._isError = status;
+  }
+
+  constructor(private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {

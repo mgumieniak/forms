@@ -27,8 +27,8 @@ export class FormsComponent implements OnInit {
   isNameInvalid = false;
 
   onSubmit(): void {
-    this.isNameInvalid = this.forms.controls.name.invalid;
-    console.log(this.forms.value, this.forms.valid);
+    // this.isNameInvalid = this.forms.controls.name.invalid;
+    // console.log(this.forms.value, this.forms.valid);
   }
 
 }

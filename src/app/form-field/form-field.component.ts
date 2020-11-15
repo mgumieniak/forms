@@ -39,17 +39,16 @@ export class FormFieldComponent implements OnInit, OnDestroy, AfterContentInit, 
       .subscribe(this._setErrorMsgStatus);
 
     this._formControlName.formDirective.ngSubmit
-      .pipe(takeUntil(this._destroyed))
-      .subscribe(this._setSubmittedStatus());
+      .subscribe(this._setSubmittedStatus);
   }
 
 
   private _setSubmittedStatus = () => {
-    this._errorMsg.isFormSubmitted = this._formControlName.formDirective.submitted;
+    this._errorMsg.isFormSubmitted = Boolean(this._formControlName.formDirective.submitted);
   };
 
   private _setErrorMsgStatus = (status) => {
-    this._errorMsg.isError = status !== 'VALID';
+    this._errorMsg.isError = Boolean(status !== 'VALID');
   };
 
   ngAfterViewInit(): void {
