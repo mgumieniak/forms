@@ -1,1 +1,6 @@
-<ng-content></ng-content>
+<ng-content select="form-label"></ng-content>
+<div class="form__input--error">
+  <ng-content select="[formInput]"></ng-content>
+</div>
+<ng-content select="form-error"></ng-content>
+

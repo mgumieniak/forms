@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[appFormInput]'
+  selector: '[formInput]'
 })
 export class FormInputDirective {
 

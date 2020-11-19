@@ -39,3 +39,11 @@
   font-size: $font-size-sm;
   border-radius: $border-radius-sm;
 }
+
+.form__input--error{
+  border-color: $input-focus-border-color-error;
+  &:focus{
+    border-color: $input-focus-border-color-error;
+    @include box-shadow($input-box-shadow, $input-focus-box-shadow-error);
+  }
+}

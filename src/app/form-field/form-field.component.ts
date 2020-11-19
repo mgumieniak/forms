@@ -13,6 +13,7 @@ import {FormControlName} from '@angular/forms';
 import {FormErrorComponent} from '../form-error/form-error.component';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {FormInputDirective} from '../form-input/form-input.directive';
 
 @Component({
   selector: 'form-field',
@@ -25,6 +26,7 @@ export class FormFieldComponent implements OnInit, OnDestroy, AfterContentInit, 
 
   @ContentChild(FormErrorComponent) private _errorMsg: FormErrorComponent;
   @ContentChild(FormLabelDirective, {read: ElementRef}) private _label: ElementRef<HTMLLabelElement>;
+  @ContentChild(FormInputDirective, {read: ElementRef}) private _content
   @ContentChild(FormControlName) private _formControlName: FormControlName;
 
   constructor() {
@@ -41,14 +43,15 @@ export class FormFieldComponent implements OnInit, OnDestroy, AfterContentInit, 
     this._formControlName.formDirective.ngSubmit
       .subscribe(this._setSubmittedStatus);
   }
+  // this._content.nativeElement.classList.
 
 
   private _setSubmittedStatus = () => {
-    this._errorMsg.isFormSubmitted = Boolean(this._formControlName.formDirective.submitted);
+    this._errorMsg.isFormSubmitted = this._formControlName.formDirective.submitted;
   };
 
   private _setErrorMsgStatus = (status) => {
-    this._errorMsg.isError = Boolean(status !== 'VALID');
+    this._errorMsg.isError = status !== 'VALID';
   };
 
   ngAfterViewInit(): void {

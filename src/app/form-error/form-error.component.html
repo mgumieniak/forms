@@ -1,1 +1,3 @@
-<ng-content *ngIf = "_isError && _isFormSubmitted" class="form__error"></ng-content>
+<div class="form__error">
+  <ng-content *ngIf = "_isError && _isFormSubmitted"></ng-content>
+</div>

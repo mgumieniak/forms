@@ -17,6 +17,7 @@ export class FormsComponent implements OnInit {
   ngOnInit(): void {
     this.forms = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(10)]],
+      type: ['', Validators.required],
       account: this.fb.group({
         email: ['', Validators.required],
         confirm: ['', Validators.required]
@@ -24,11 +25,9 @@ export class FormsComponent implements OnInit {
     });
   }
 
-  isNameInvalid = false;
 
   onSubmit(): void {
-    // this.isNameInvalid = this.forms.controls.name.invalid;
-    // console.log(this.forms.value, this.forms.valid);
+    console.log(this.forms.value, this.forms.valid);
   }
 
 }
