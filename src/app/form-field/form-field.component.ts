@@ -14,6 +14,7 @@ import {FormErrorComponent} from '../form-error/form-error.component';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {FormInputDirective} from '../form-input/form-input.directive';
+import {FormFieldControl} from '../form-field-control.directive';
 
 @Component({
   selector: 'form-field',
@@ -26,7 +27,7 @@ export class FormFieldComponent implements OnInit, OnDestroy, AfterContentInit, 
 
   @ContentChild(FormErrorComponent) private _errorMsg: FormErrorComponent;
   @ContentChild(FormLabelDirective, {read: ElementRef}) private _label: ElementRef<HTMLLabelElement>;
-  @ContentChild(FormInputDirective, {read: ElementRef}) private _content
+  @ContentChild(FormFieldControl) private _control: FormFieldControl;
   @ContentChild(FormControlName) private _formControlName: FormControlName;
 
   constructor() {
@@ -52,6 +53,8 @@ export class FormFieldComponent implements OnInit, OnDestroy, AfterContentInit, 
 
   private _setErrorMsgStatus = (status) => {
     this._errorMsg.isError = status !== 'VALID';
+    this._control.errorState = status !== 'VALID';
+    console.log(this._control.errorState)
   };
 
   ngAfterViewInit(): void {
