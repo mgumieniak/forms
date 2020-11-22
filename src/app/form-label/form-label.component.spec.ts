@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormField } from './form-field.component';
+import { FormLabel } from './form-label.component';
 
-describe('FormFieldComponent', () => {
-  let component: FormField;
-  let fixture: ComponentFixture<FormField>;
+describe('FormLabelComponent', () => {
+  let component: FormLabel;
+  let fixture: ComponentFixture<FormLabel>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FormField ]
+      declarations: [ FormLabel ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormField);
+    fixture = TestBed.createComponent(FormLabel);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

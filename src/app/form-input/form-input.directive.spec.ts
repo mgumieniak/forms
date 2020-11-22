@@ -1,8 +1,8 @@
-import { FormInputDirective } from './form-input.directive';
+import { FormInput } from './form-input.directive';
 
-describe('FormInputDirective', () => {
+describe('FormInput', () => {
   it('should create an instance', () => {
-    const directive = new FormInputDirective();
+    const directive = new FormInput();
     expect(directive).toBeTruthy();
   });
 });

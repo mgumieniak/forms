@@ -6,7 +6,7 @@ import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} fr
   styleUrls: ['./form-error.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormErrorComponent implements OnInit {
+export class FormError implements OnInit {
   _isFormSubmitted = false;
   _isError = false;
 

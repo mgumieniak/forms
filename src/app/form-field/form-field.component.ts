@@ -8,13 +8,12 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import {FormLabelDirective} from '../form-label/form-label.directive';
 import {FormControlName} from '@angular/forms';
-import {FormErrorComponent} from '../form-error/form-error.component';
+import {FormError} from '../form-error/form-error.component';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {FormInputDirective} from '../form-input/form-input.directive';
 import {FormFieldControl} from '../form-field-control.directive';
+import {FormLabel} from '../form-label/form-label.component';
 
 @Component({
   selector: 'form-field',
@@ -22,11 +21,11 @@ import {FormFieldControl} from '../form-field-control.directive';
   styleUrls: ['./form-field.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormFieldComponent implements OnInit, OnDestroy, AfterContentInit, AfterViewInit {
+export class FormField implements OnInit, OnDestroy, AfterContentInit, AfterViewInit {
   _destroyed = new Subject<void>();
 
-  @ContentChild(FormErrorComponent) private _errorMsg: FormErrorComponent;
-  @ContentChild(FormLabelDirective, {read: ElementRef}) private _label: ElementRef<HTMLLabelElement>;
+  @ContentChild(FormError) private _errorMsg: FormError;
+  @ContentChild(FormLabel, {read: ElementRef}) private _label: ElementRef<HTMLLabelElement>;
   @ContentChild(FormFieldControl) private _control: FormFieldControl;
   @ContentChild(FormControlName) private _formControlName: FormControlName;
 

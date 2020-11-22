@@ -3,9 +3,9 @@ import {FormFieldControl} from '../form-field-control.directive';
 
 @Directive({
   selector: 'input[formInput]',
-  providers: [{provide: FormFieldControl, useExisting: FormInputDirective}]
+  providers: [{provide: FormFieldControl, useExisting: FormInput}]
 })
-export class FormInputDirective extends FormFieldControl {
+export class FormInput extends FormFieldControl {
 
   constructor() {
     super();

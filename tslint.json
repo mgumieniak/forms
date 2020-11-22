@@ -117,7 +117,7 @@
         "check-typecast"
       ]
     },
-    "component-class-suffix": true,
+    "component-class-suffix": false,
     "contextual-lifecycle": true,
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
