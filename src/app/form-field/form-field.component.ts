@@ -43,7 +43,6 @@ export class FormField implements OnInit, OnDestroy, AfterContentInit, AfterView
     this._formControlName.formDirective.ngSubmit
       .subscribe(this._setSubmittedStatus);
   }
-  // this._content.nativeElement.classList.
 
 
   private _setSubmittedStatus = () => {

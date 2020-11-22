@@ -3,7 +3,9 @@ import {FormFieldControl} from '../form-field-control.directive';
 
 @Directive({
   selector: 'input[formInput]',
-  providers: [{provide: FormFieldControl, useExisting: FormInput}]
+  providers: [
+    {provide: FormFieldControl, useExisting: FormInput}
+  ]
 })
 export class FormInput extends FormFieldControl {
 
@@ -11,9 +13,10 @@ export class FormInput extends FormFieldControl {
     super();
   }
 
+  @HostBinding('class') cssClass = 'form__input'
+
   @HostBinding('class.form__input--error')
   get hasError(): boolean {
     return this.errorState;
   }
-
 }

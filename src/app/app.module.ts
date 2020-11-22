@@ -8,6 +8,7 @@ import { FormField } from './form-field/form-field.component';
 import { FormInput } from './form-input/form-input.directive';
 import { FormError } from './form-error/form-error.component';
 import { FormLabel } from './form-label/form-label.component';
+import { FormSelect } from './form-select/form-select.directive';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormLabel } from './form-label/form-label.component';
     FormInput,
     FormError,
     FormLabel,
+    FormSelect,
   ],
   imports: [
     BrowserModule,
