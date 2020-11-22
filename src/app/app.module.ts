@@ -8,7 +8,8 @@ import { FormField } from './form-field/form-field.component';
 import { FormInput } from './form-input/form-input.directive';
 import { FormError } from './form-error/form-error.component';
 import { FormLabel } from './form-label/form-label.component';
-import { FormSelect } from './form-select/form-select.directive';
+import { FormSelect } from './form-select/form-select.component';
+import {FormSelectBase} from './form-select/form-select-base.directive';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormSelect } from './form-select/form-select.directive';
     FormInput,
     FormError,
     FormLabel,
+    FormSelectBase,
     FormSelect,
   ],
   imports: [

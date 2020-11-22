@@ -1,0 +1,27 @@
+@import "src/forms/form-select";
+
+.select-wrapper {
+  display: grid;
+  grid-template-areas: "select";
+
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+
+  select,
+  &::after {
+    grid-area: select;
+  }
+
+  &::after {
+    margin-right: $very-small-dist;
+    display: block;
+    content: "";
+    justify-self: end;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    border: 0.5em solid $gray-400;
+  }
+}
+
+
+

@@ -4,15 +4,18 @@ import {FormFieldControl} from '../form-field-control.directive';
 @Directive({
   selector: 'select[formInput]',
   providers: [
-    {provide: FormFieldControl, useExisting: FormSelect}
+    {provide: FormFieldControl, useExisting: FormSelectBase}
   ]
 })
-export class FormSelect extends FormFieldControl {
+export class FormSelectBase extends FormFieldControl {
 
   constructor() {
     super();
   }
 
-  @HostBinding('class') cssClass = 'form__select'
+  @HostBinding('class.form__select--error')
+  get hasError(): boolean {
+    return this.errorState;
+  }
 
 }

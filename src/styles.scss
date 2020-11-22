@@ -22,6 +22,7 @@ $opacity-medium: 0.6;
 $opacity-normal: 1;
 
 // Distance
+$very-small-dist: 0.5em !default;
 $small-dist: 1em !default;
 $medium-dist: 1.5em !default;
 $big-dist: 2em !default;
@@ -115,6 +116,10 @@ $form-label-font-weight: $font-weight-normal !default;
 $form-label-color: null !default;
 
 $form-error-msg-margin-top: .25rem !default;
+
+$form-select-padding-y: $input-padding-y !default;
+$form-select-padding-x: $input-padding-x !default;
+$form-select-indicator-padding: 1.25rem !default;
 
 
 html {
