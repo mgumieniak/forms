@@ -1,5 +1,5 @@
-import {Component, HostListener} from '@angular/core';
-import {FormFieldControl} from '../form-field-control.directive';
+import {Component} from '@angular/core';
+import {FormFieldControl} from '../form-field/form-field-control.directive';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 @Component({
@@ -16,32 +16,36 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
   ]
 })
 export class FormSelect extends FormFieldControl implements ControlValueAccessor {
-  dropDown = false
-  value = '';
-  onChange: (value: string) => void;
-  onTouched: () => void;
+  _dropDown = false;
+  _value = '';
+  _onChange: (value: string) => void;
+  _onTouched: () => void;
 
   constructor() {
     super();
   }
 
   registerOnChange(fn: any): void {
-    this.onChange = fn;
+    this._onChange = fn;
   }
 
   registerOnTouched(fn: any): void {
-    this.onTouched = fn;
+    this._onTouched = fn;
   }
 
   writeValue(obj: string): void {
-    this.value = obj;
+    this._value = obj;
   }
 
   setValue(value): void {
-    this.value = value;
-    this.onChange(this.value);
-    this.onTouched();
-    this.dropDown = false;
+    this._value = value;
+    this._onChange(this._value);
+    this._onTouched();
+    this._dropDown = false;
+  }
+
+  onClick(): void {
+    this._dropDown = true;
   }
 }
 

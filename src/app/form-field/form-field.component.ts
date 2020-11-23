@@ -1,18 +1,9 @@
-import {
-  AfterContentInit,
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  ContentChild,
-  ElementRef,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
+import {AfterContentInit, ChangeDetectionStrategy, Component, ContentChild, ElementRef, OnDestroy} from '@angular/core';
 import {FormControlName} from '@angular/forms';
 import {FormError} from '../form-error/form-error.component';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {FormFieldControl} from '../form-field-control.directive';
+import {FormFieldControl} from './form-field-control.directive';
 import {FormLabel} from '../form-label/form-label.component';
 
 @Component({
@@ -21,7 +12,7 @@ import {FormLabel} from '../form-label/form-label.component';
   styleUrls: ['./form-field.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FormField implements OnInit, OnDestroy, AfterContentInit, AfterViewInit {
+export class FormField implements OnDestroy, AfterContentInit {
   _destroyed = new Subject<void>();
 
   @ContentChild(FormError) private _errorMsg: FormError;
@@ -32,31 +23,32 @@ export class FormField implements OnInit, OnDestroy, AfterContentInit, AfterView
   constructor() {
   }
 
-  ngOnInit(): void {
-  }
-
   ngAfterContentInit(): void {
     this._formControlName.control.statusChanges
       .pipe(takeUntil(this._destroyed))
       .subscribe(this._setErrorMsgStatus);
 
     this._formControlName.formDirective.ngSubmit
+      .pipe(takeUntil(this._destroyed))
       .subscribe(this._setSubmittedStatus);
   }
 
-
   private _setSubmittedStatus = () => {
-    this._errorMsg.isFormSubmitted = this._formControlName.formDirective.submitted;
+    this._setFormErrorSubmittedFlag();
+    this._setControlErrorState();
   };
+
+  private _setFormErrorSubmittedFlag(): void {
+    this._errorMsg.isFormSubmitted = this._formControlName.formDirective.submitted;
+  }
+
+  private _setControlErrorState(): void {
+    this._control.errorState = (this._formControlName.control.status !== 'VALID');
+  }
 
   private _setErrorMsgStatus = (status) => {
     this._errorMsg.isError = status !== 'VALID';
-    this._control.errorState = status !== 'VALID';
-    console.log(this._control.errorState)
   };
-
-  ngAfterViewInit(): void {
-  }
 
   ngOnDestroy(): void {
     this._destroyed.next();

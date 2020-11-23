@@ -115,11 +115,16 @@ $form-label-margin-bottom: .5rem !default;
 $form-label-font-weight: $font-weight-normal !default;
 $form-label-color: null !default;
 
+// Form error
 $form-error-msg-margin-top: .25rem !default;
+$form-error-show-time: 1.5s !default;
 
+// Form select
 $form-select-padding-y: $input-padding-y !default;
 $form-select-padding-x: $input-padding-x !default;
 $form-select-indicator-padding: 1.25rem !default;
+
+$arrow-rotate-time: 0.7s !default;
 
 
 html {

@@ -1,5 +1,5 @@
 import {Directive, HostBinding} from '@angular/core';
-import {FormFieldControl} from '../form-field-control.directive';
+import {FormFieldControl} from '../form-field/form-field-control.directive';
 
 @Directive({
   selector: 'select[formInput]',

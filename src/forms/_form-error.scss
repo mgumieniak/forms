@@ -6,4 +6,17 @@
   margin-top: $form-error-msg-margin-top;
   font-size: $font-size-mic;
   font-weight: $font-weight-light;
+  animation: backInDown $form-error-show-time cubic-bezier(0.55, 0, 0.55, 0.2);
+}
+
+@keyframes backInDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }

@@ -22,13 +22,13 @@
     border: 0.4em solid $gray-400;
 
     transform: rotate(0deg);
-    transition: transform 0.7s ease;
+    transition: transform $arrow-rotate-time ease;
   }
 }
 
 .select__wrapper--dropdown:hover::after {
   transform: rotate(180deg);
-  transition: transform 0.7s ease;
+  transition: transform $arrow-rotate-time ease;
 }
 
 
