@@ -1,6 +1,6 @@
 @import "src/forms/form-select";
 
-.select-wrapper {
+.select__wrapper {
   display: grid;
   grid-template-areas: "select";
 
@@ -14,14 +14,23 @@
   }
 
   &::after {
-    margin-right: $very-small-dist;
     display: block;
+    margin-right: $very-small-dist;
     content: "";
     justify-self: end;
     clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-    border: 0.5em solid $gray-400;
+    border: 0.4em solid $gray-400;
+
+    transform: rotate(0deg);
+    transition: transform 0.7s ease;
   }
 }
+
+.select__wrapper--dropdown:hover::after {
+  transform: rotate(180deg);
+  transition: transform 0.7s ease;
+}
+
 
 
 

@@ -1,5 +1,5 @@
-<div class="select-wrapper">
-  <select formInput (change)="setValue($event.target['value'])" class="form__select">
+<div class="select__wrapper" [class.select__wrapper--dropdown]="dropDown">
+  <select formInput (click)="dropDown=true" (change)="setValue($event.target['value'])" class="form__select">
     <ng-content></ng-content>
   </select>
 </div>
